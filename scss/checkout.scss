@@ -1,0 +1,253 @@
+@import "common";
+
+body {
+    // outline: 3px solid red;
+    margin: 0 auto;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px;
+    max-width: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    margin: 0 auto;
+    display: flex;
+    margin: 0 -16px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.col-25 {
+    // -ms-flex: 25%;
+    // /* IE10 */
+    // flex: 25%;
+}
+
+.col-50 {
+    // -ms-flex: 50%;
+    // /* IE10 */
+    // flex: 50%;
+    width: 100%;
+}
+
+.col-75 {
+    // -ms-flex: 75%;
+    // /* IE10 */
+    // flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+    width: 100%;
+}
+
+.container {
+    // outline: 3px solid red;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    // padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 100%;
+    display: flex;
+    @include max-width-mixin(1024px) {
+        flex-direction: column;
+        align-items: center;
+        // margin-bottom: 25px;
+        width: 100%;
+    }
+    justify-content: space-between;
+
+    form {
+        // outline: 3px solid blue;
+        padding: 5px 20px 15px 20px;
+        // margin-bottom: 25px;
+        width: 45%;
+        @include max-width-mixin(1024px) {
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        i {
+            display: none;
+        }
+        input[type="text"] {
+            font-size: inherit;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    .col-25a {
+        // outline: 3px solid red;
+        padding: 5px 20px 15px 20px;
+        @include max-width-mixin(600px) {
+            padding: 0;
+        }
+        width: 45%;
+        margin: 0 auto;
+        // margin-left: 25px;
+        @include max-width-mixin(1024px) {
+            width: 100%;
+        }
+
+        .tbl-cart1 {
+            width: 100%;
+            // outline: 3px solid red;
+            margin: 0 auto;
+            padding: 0;
+            text-align: right;
+
+            .qty-class {
+                text-align: center;
+            }
+        }
+
+        h3 {
+            line-height: 0.25;
+        }
+        .manual-weight-block {
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-around;
+
+            input {
+                width: 70px;
+            }
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type="number"] {
+                -moz-appearance: textfield;
+                text-align: right;
+            }
+        
+            input[type="text"] {
+                    text-align: left;
+            }
+            #cost-field {
+                text-align: right;
+            }
+        }
+
+        #get-wt-button-block {
+            // outline: 3px solid red;
+            display: flex;
+            align-items: flex-end;
+
+            #get-wt-button {
+                // margin-top: 50px;
+                background-color: #45a049;
+                color: white;
+            }
+        }
+        button {
+            border-radius: 10px;
+            background-color: #45a049;
+            color: white;
+        }
+        
+        .experimental {
+            margin: 0 auto;
+            text-align: center;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+            width: 95%;
+        }
+
+
+    }
+}
+
+input[type="text"] {
+    width: 100%;
+    // margin-bottom: 20px;
+    // padding: 12px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 2px;
+    margin-top: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.btn {
+    background-color: #4caf50;
+
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+
+    width: 250px;
+    height: 50px;
+    font-size: 25px;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #2196f3;
+}
+
+hr {
+    border: 1px solid lightgrey;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}
+

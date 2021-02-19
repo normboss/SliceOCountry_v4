@@ -1,0 +1,185 @@
+.logo {
+    &__title {
+        font-family: "Parisienne";
+        color: white;
+        @include min-width-mixin(1300px) {
+            color: #13534c;
+        }
+        font-weight: 800;
+        font-size: 48px;
+        word-spacing: 10px;
+        line-height: 90%;
+        @include max-width-mixin(400px) {
+            font-size: 48px;
+        }
+    }
+
+    &__sub-title {
+        color: white;
+        font-weight: bold;
+        @include min-width-mixin(1300px) {
+            color: darkgray;
+            font-weight: 800;
+        }
+        font-family: $font-nothing;
+        font-family: "Parisienne";
+        font-size: 36px;
+        letter-spacing: 6px;
+        @include max-width-mixin(400px) {
+            font-size: 28px;
+        }
+    }
+}
+
+.small-logo {
+    background-color: white;
+    color: black;
+    &__title {
+        font-family: "Parisienne";
+        font-weight: 800;
+        font-size: 32px;
+        word-spacing: 10px;
+        @include max-width-mixin(325px) {
+            font-size: 20px;
+        }
+    }
+
+    &__sub-title {
+        font-family: "Parisienne";
+        font-weight: 800;
+        font-size: 20px;
+        @include max-width-mixin(400px) {
+            // font-size: 28px;
+        }
+    }
+}
+
+.header-logo {
+    // border: 3px solid red;
+    background-color: $menu-background-color;
+    color: white;
+    font-weight: bold;
+    height: $banner-height;
+    // width: 300px;
+    padding-left: 25px;
+    @include max-width-mixin(400px) {
+        padding-left: 0px;
+    }
+    padding-top: 25px;
+    @include max-width-mixin(800px) {
+        // padding-left: 10px;
+        // padding-top: 0px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+        // border: 3px solid red;
+        font-family: "Parisienne";
+        font-weight: normal;
+        font-size: 48px;
+        // letter-spacing: 1.2px;
+        // word-spacing: 10px;
+        // @include max-width-mixin(900px) {
+        //     font-size: 48px;
+        //     text-align: left;
+        //     // padding-top: 20px;
+        // }
+        // @include max-width-mixin(800px) {
+        //     padding-top: 20px;
+        // }
+        @include max-width-mixin(450px) {
+            font-size: 44px;
+            text-align: left;
+            padding-top: 20px;
+            padding-left: 0px;
+        }
+        @include max-width-mixin(420px) {
+            font-size: 42px;
+            text-align: left;
+            padding-top: 20px;
+        }
+        @include max-width-mixin(400px) {
+            // font-size: 40px;
+            text-align: left;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        @include max-width-mixin(360px) {
+            font-size: 36px;
+            text-align: left;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        @include max-width-mixin(315px) {
+            font-size: 34px;
+            text-align: left;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+        .s-font {
+            font-family: "Great Vibes", cursive;
+            font-weight: normal;
+        }
+    }
+
+    &__sub-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        @include max-width-mixin(450px) {
+            font-size: 12px;
+        }
+        @include max-width-mixin(400px) {
+            font-size: 10px;
+            // display: none;
+        }
+    }
+}
+
+
+.footer-logo {
+    // border: 3px solid red;
+    // background-color: $menu-background-color;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    // text-align: left;
+    @include max-width-mixin(500px) {
+        text-align: center;
+    }
+
+    &__title {
+        font-family: "Parisienne";
+        font-weight: normal;
+        font-size: 56px;
+        @include max-width-mixin(500px) {
+            // padding-top: 10px;
+            font-size: 48px;
+        }
+        @include max-width-mixin(420px) {
+            // padding-top: 10px;
+            font-size: 42px;
+        }
+        @include max-width-mixin(360px) {
+            // padding-top: 10px;
+            font-size: 32px;
+        }
+        .s-font {
+            font-family: "Great Vibes", cursive;
+            font-weight: normal;
+        }
+    }
+
+    &__sub-title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+        @include max-width-mixin(500px) {
+            font-size: 10px;
+        }
+    }
+}

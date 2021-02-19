@@ -1,0 +1,20 @@
+
+
+
+https://secure.shippingapis.com/shippingapi.dll?API=RateV4&XML=<RateV4Request USERID="981ALCHE4825">
+
+<Revision>2</Revision>
+<Package ID="1ST">
+<Service>ALL</Service>
+<ZipOrigination>04544</ZipOrigination>
+<ZipDestination>03060</ZipDestination>
+<Pounds>0</Pounds>
+<Ounces>10</Ounces>
+<Container></Container>
+<Width></Width>
+<Length></Length>
+<Height></Height>
+<Girth></Girth>
+<Machinable>false</Machinable>
+</Package>
+</RateV4Request>

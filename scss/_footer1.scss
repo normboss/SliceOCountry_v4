@@ -1,0 +1,206 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 23, 2019, 12:31:28 AM
+    Author     : Norm
+*/
+$footBreakPt: 700px;
+.foot {
+    // border: 3px solid blue;
+    max-width: 4200px;
+    font-family: "Raleway";
+    margin: 0 auto;
+    display: grid;
+    row-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include max-width-mixin(850px) {
+        grid-template-columns: 2fr 1fr 1fr;
+
+    }
+    background-color: #13534c;
+    width: 100%;
+    height: auto; //250px;
+    // row-gap: 15px;
+    justify-items: center;
+    // padding-bottom: 50px;
+    a{
+        text-decoration:inherit;
+        color: inherit;
+     }
+
+
+    @include max-width-mixin($footBreakPt) {
+        grid-template-columns: 1fr;
+        // height: auto;
+    }
+    align-items: start;
+    .foot-box {
+        // border: 3px solid red;
+        width: 80%;
+        height: auto; //60px;
+        color: white;
+        font-size: 23px;
+        padding-bottom: 15px;
+        @include max-width-mixin(500px) {
+            // height: 25px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    .foot__text {
+        // // border: 3px solid red;
+        padding-top: 20px;
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 1;
+        @include max-width-mixin($footBreakPt) {
+            grid-column: 1 / span 1;
+        }
+        color: white;
+        text-align: center;
+        // font-size: 32px;
+        @include max-width-mixin(500px) {
+            margin: 0 auto;
+            text-align: center;
+        }
+        display: flex;
+        justify-content: space-around;
+        align-content: flex-start;
+        // height: 100px;
+        font-size: 32px;
+        padding-bottom: 20px;
+        align-items: flex-start;
+    }
+    .stuff1 {
+        text-align: left;
+        // padding-top: 25px;
+        font-size: 20px;
+        @include max-width-mixin(500px) {
+            font-size: 16px;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 0px;
+        }
+    }
+    .stuff2,
+    .stuff3 {
+        // padding-top: 25px;
+        font-size: 20px;
+        @include max-width-mixin(500px) {
+            font-size: 16px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        // height: 50px;
+        @include max-width-mixin($footBreakPt) {
+            grid-column: 1 / span 1;
+            grid-row: 2 / span 1;
+        }
+    }
+    .stuff4 {
+        // padding-top: 25px;
+        font-size: 20px;
+        @include max-width-mixin(500px) {
+            font-size: 16px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        // height: 50px;
+        @include max-width-mixin($footBreakPt) {
+            grid-column: 1 / span 1;
+            grid-row: 3 / span 1;
+        }
+    }
+    
+    .phone {
+        a[href^=tel] {
+            text-decoration:inherit;
+            color: inherit;
+         }
+    }
+    .fone, .email {
+        // padding-top: 15px;
+        a{
+            text-decoration:inherit;
+            color: inherit;
+         }
+    }
+
+    .stuff-facebook {
+        // border: 3px solid red;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        .facebook-text {
+            // border: 3px solid blue;
+            font-size: 20px;
+            color: white;
+            // margin-bottom: 25px;
+            // padding-top: 5px;
+            @include max-width-mixin(850px) {
+                display: none;
+            }
+        }
+        a img {
+            width: 35px;
+            padding-bottom: 5px;;
+        }
+        @include max-width-mixin(500px) {
+            font-size: 16px;
+            a img {
+                width: 20px;
+            }
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 0px;
+        }
+        text-align: center;
+        @include max-width-mixin($footBreakPt) {
+            grid-column: 1 / span 1;
+            grid-row: 4 / span 1;
+        }
+    }
+    
+    .alchemy {
+        //   border: 2px solid red;
+        grid-column: 1 / span 3;
+        grid-row: 3 / span 1;
+    @include max-width-mixin($footBreakPt) {
+            grid-column: 1 / span 1;
+            grid-row: 5 / span 1;
+        }
+        // padding-top: 10px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white; //#957a2b;
+
+        .credit-brand {
+            @extend %font-credit-brand;
+            /*font-weight: bold;*/
+            font-size: 24px;
+        }
+        .credit-name {
+            @extend %font-credit-name;
+            /*font-weight: bold;*/
+            font-size: 18px;
+        }
+        .credit-tagline {
+            @extend %font-credit-tagline;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+}

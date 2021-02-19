@@ -1,0 +1,13 @@
+copy .\zapfino_linotype_one\*.* .\Unziped
+copy .\zapfinoextraltalternate\*.* .\Unziped
+copy .\zapfinoextraltfour\*.* .\Unziped
+copy .\zapfinoextraltligatures\*.* .\Unziped
+copy .\zapfinoextraltone\*.* .\Unziped
+copy .\zapfinoextraltornaments\*.* .\Unziped
+copy .\zapfinoextraltpro\*.* .\Unziped
+copy .\zapfinoextraltsmallcaps\*.* .\Unziped
+copy .\zapfinoextraltthree\*.* .\Unziped
+copy .\zapfinoextralttwo\*.* .\Unziped
+copy .\zapfinoforteltalternate\*.* .\Unziped
+copy .\zapfinoforteltone\*.* .\Unziped
+copy .\zapfinoforteltpro\*.* .\Unziped

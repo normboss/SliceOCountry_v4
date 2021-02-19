@@ -1,0 +1,135 @@
+
+
+$font-size: 16px;
+$text-color: white;
+
+.nav {
+    box-sizing: border-box;
+    // border: 3px solid red;
+    display: block;
+    @include max-width-mixin(600px) {
+        .nav__narrow {
+            display: block;
+        }
+        .nav__main {
+            display: none;
+        }
+    }
+    @include min-width-mixin(600px) {
+        .nav__narrow {
+            display: none;
+        }
+        .nav__main {
+            display: block;
+        }
+    }
+    .nav__main, .nav__narrow {
+        // border: 3px solid red;
+        background-color: $menu-background-color;
+        display: flex;
+        flex-direction: row;
+        // width: 90%;
+        height: 32px;
+        justify-content: flex-end;
+        // position: fixed;
+        top: 0px;
+        padding-top: 15px;
+        // padding-right: 50px;
+        
+        a {
+            /*color: red;*/
+            color: $text-color;
+            font-size: $font-size;
+        }
+
+        .menu-item {
+            // border: 3px solid red;
+            padding-left: 50px;
+            padding-right: 50px;
+            height: 100px; //$banner-height;
+            a {
+                font-size: $font-size;
+                height: 100px;
+                 text-decoration: none ;
+}
+            .dropdown {
+                // border: 3px solid red;
+                height: 100px;
+                .menu-item {
+                    a {
+                        font-size: $font-size;
+                        height: 100px;
+                    }
+                    height: 50px;
+                }
+                .dropdown-content {
+                    height: 50px;
+                    a {
+                        font-size: $font-size;
+                        height: 100px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    // a:link {
+    //     text-decoration: none ;
+    //   }
+
+    .nav__main a:hover,
+    .nav__narrow a:hover,
+    .dropdown:hover .dropbtn {
+        background-color: $menu-background-color; //white;
+    }
+
+    .dropdown-content {
+        display: none;
+        // position: absolute;
+        // background-color: #f9f9f9;
+        /*min-width: 100px;*/
+        height: auto;
+        /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+        /*z-index: 1;*/
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: blue;
+        /*padding: 12px;*/
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        height: 30px;
+        font-size: $font-size;
+    }
+    
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        background-color: lightgreen;
+    }
+
+    .nav__main, .nav__narrow {
+        width: 100%;
+        /*padding-top: 15px;*/
+        color: $text-color;
+    }
+
+    /*header a {
+      font-size: 1rem 20px;
+      color: black;
+    }*/
+
+    .menu-item {
+        font-size: 16px;
+        color: white; //$text-color;
+    }
+
+    .dropdown-item {
+        font-size: $font-size;
+        color: white; //$text-color;
+        text-align: left;
+        padding-top: 50px;
+    }
+}

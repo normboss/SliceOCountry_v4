@@ -1,0 +1,119 @@
+@import "common";
+
+body {
+    font-family: Arial;
+    color: #211a1a;
+    // font-size: 0.9em;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    #shopping-cart {
+        // outline: 3px solid red;
+        margin-top: 40px;
+        width: 100%;
+        max-width: 1280px;
+
+        .txt-heading {
+            color: #211a1a;
+            border-bottom: 1px solid #e0e0e0;
+            // overflow: auto;
+            font-size: 25px;
+        }
+
+        #btnEmpty {
+            background-color: #ffffff;
+            border: #d00000 1px solid;
+            padding: 5px 10px;
+            color: #d00000;
+            float: right;
+            text-decoration: none;
+            border-radius: 3px;
+            margin: 10px 0px;
+            font-size: 25px;
+        }
+
+        .tbl-cart {
+            width: 100%;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+
+            .tbl-cart {
+                // font-size: 0.9em;
+                font-size: 18px;
+            }
+
+            th {
+                // border: 3px solid red;
+                font-weight: normal;
+                font-size: 16px;
+                text-align: center;
+            }
+            .th-image,
+            .td-image,
+            .th-code,
+            .td-code {
+                @include max-width-mixin(800px) {
+                    display: none;
+                }
+            }
+
+            td {
+                background-color: #ffffff;
+                font-size: 18px;
+            }
+            .qty-id {
+                color: red;
+                input {
+                    width: 50px;
+                    // height: 4 0px;
+                    font-size: 18px;
+                    color: red;
+                    text-align: center;
+                    
+                }
+            }
+        }
+    }
+
+    .cart-buttons {
+        width: 100%;
+        max-width: 1280px;
+        display: flex;
+        flex-direction: column;
+
+        .continue-shopping {
+            // margin-left: 40px;
+            display: flex;
+            justify-content: space-between;
+            button {
+                width: 40%;
+                height: 50px;
+                font-size: 25px;
+                border-radius: 10px;
+                @include max-width-mixin(550px) {
+                    height: 80px;
+                }
+            }
+        }
+    }
+
+    .cart-item-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: #e0e0e0 1px solid;
+        padding: 5px;
+        vertical-align: middle;
+        margin-right: 15px;
+    }
+
+    .no-records {
+        text-align: center;
+        clear: both;
+        margin: 38px 0px;
+        font-size: 25px;
+    }
+}
