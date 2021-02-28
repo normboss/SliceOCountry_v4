@@ -198,7 +198,9 @@ $_SESSION['pagename'] = "shopping-cart";
         }
 
         function goBack() {
-            window.history.back();
+            // window.history.back();
+            window.location.href = "index.php";
+
         }
 
         function goForward() {

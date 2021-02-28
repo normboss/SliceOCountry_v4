@@ -216,6 +216,7 @@ $_SESSION['pagename'] = "checkout-info";
 
         function goBack() {
             window.location.href = "shopping-cart-js-mobile2.php";
+            // window.history.back();
         }
 
 
