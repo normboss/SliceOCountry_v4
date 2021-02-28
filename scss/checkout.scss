@@ -93,6 +93,21 @@ body {
         input[type="number"] {
             -moz-appearance: textfield;
         }
+
+        .btn-link {
+            text-decoration: none;
+            width: 250px;
+        }
+
+        a {
+            text-decoration: none;;
+            color: white;
+        }
+    }
+
+    .btn-link {
+        text-decoration: none;
+        width: 250px;
     }
 
     .col-25a {
@@ -205,6 +220,7 @@ label {
     font-size: 24px;
 }
 
+
 .btn {
     background-color: #4caf50;
 
@@ -221,6 +237,10 @@ label {
     height: 50px;
     font-size: 25px;
     margin: 0 auto;
+
+    text-decoration: none;
+}
+.btn-link {
 }
 
 .btn:hover {
@@ -229,6 +249,7 @@ label {
 
 a {
     color: #2196f3;
+    text-decoration: none;
 }
 
 hr {

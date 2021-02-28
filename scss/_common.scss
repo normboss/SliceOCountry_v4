@@ -624,8 +624,10 @@ $font-size: 16px;
     margin-left: 50px;
     width: 217px;
 
+
     /* Add styles to the form container */
     .form-container {
+        // outline: 2px solid red;
         max-width: 300px;
         padding: 10px;
         background-color: white;
@@ -682,6 +684,34 @@ $font-size: 16px;
     }
     // display: none; 
 }
+
+.btn {
+    background-color: #4caf50;
+
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+
+    width: 250px;
+    height: 50px;
+    font-size: 25px;
+    margin: 0 auto;
+
+    text-decoration: none;
+}
+.btn-link {
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+
 
 
 @import "menu2";

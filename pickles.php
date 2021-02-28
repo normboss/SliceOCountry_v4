@@ -27,60 +27,60 @@ and open the template in the editor.
 
     <?php
 
-    function pickleBlockOld($image, $title, $trad, $copy, $code)
-    {
-        echo '<div class="pickle-block">'."\n";
-            echo '<div class="jam-box image">'."\n";
-                echo '<img src="./images/' . $image . '" alt="">'."\n";
-            echo '</div>'."\n";
-            echo '<div class="pickle-box1 pickle-copy">'."\n";
-                require './includes/small-logo.php';
-                echo '<div class="traditional">' . $trad . '</div>'."\n";
-                echo '<div class="name">'."\n";
-                    echo $title . "\n";
-                echo '</div>'."\n";
-                echo '<div class="text">'."\n";
-                    echo $copy."\n";
-                echo '</div>'."\n";
+    //function pickleBlockOld($image, $title, $trad, $copy, $code)
+    // {
+    //     echo '<div class="pickle-block">'."\n";
+    //         echo '<div class="jam-box image">'."\n";
+    //             echo '<img src="./images/' . $image . '" alt="">'."\n";
+    //         echo '</div>'."\n";
+    //         echo '<div class="pickle-box1 pickle-copy">'."\n";
+    //             require './includes/small-logo.php';
+    //             echo '<div class="traditional">' . $trad . '</div>'."\n";
+    //             echo '<div class="name">'."\n";
+    //                 echo $title . "\n";
+    //             echo '</div>'."\n";
+    //             echo '<div class="text">'."\n";
+    //                 echo $copy."\n";
+    //             echo '</div>'."\n";
 
-                echo '<div class="button-box">'."\n";
-                    echo '<div class="text text-centered">8 ounce jar $7.45</div>'."\n";
-                    echo '<button class="button" onclick="openAdd2CartForm' . $code . '()">Order from Sarah</button>'."\n";
-                echo '</div>'."\n";
+    //             echo '<div class="button-box">'."\n";
+    //                 echo '<div class="text text-centered">8 ounce jar $7.45</div>'."\n";
+    //                 echo '<button class="button" onclick="openAdd2CartForm' . $code . '()">Order from Sarah</button>'."\n";
+    //             echo '</div>'."\n";
 
-                echo '<div class="add2cart-popup" id="add2cart-form' . $code . '">'."\n";
-                    echo '<form id="form-add2cart-form' . $code . '" method="post" action="pre-shopping-cart.php?action=add" class="form-container">'."\n";
-                        echo '<label for="quantity">Quantity</label>'."\n";
-                        echo '<input type="number" id="quantity" min="1" value="1" name="quantity">'."\n";
-                        echo '<input type="hidden" id="code" value="' . $code . '" name="code">'."\n";
-                        echo '<br>'."\n";
-                        echo '<br><br>'."\n";
-                        // echo '<button type="submit" class="btn">Add to Cart</button>';
-                        echo '<button type="button" class="btn cancel" onclick="Add2Cart' . $code . '()">Add to Cart</button>'."\n";
-                        echo '<br><br>'."\n";
-                        echo '<button type="button" class="btn cancel" onclick="closeAdd2CartForm' . $code . '()">Cancel</button>'."\n";
-                    echo '</form>'."\n";
-                echo '</div>';        
+    //             echo '<div class="add2cart-popup" id="add2cart-form' . $code . '">'."\n";
+    //                 echo '<form id="form-add2cart-form' . $code . '" method="post" action="pre-shopping-cart.php?action=add" class="form-container">'."\n";
+    //                     echo '<label for="quantity">Quantity</label>'."\n";
+    //                     echo '<input type="number" id="quantity" min="1" value="1" name="quantity">'."\n";
+    //                     echo '<input type="hidden" id="code" value="' . $code . '" name="code">'."\n";
+    //                     echo '<br>'."\n";
+    //                     echo '<br><br>'."\n";
+    //                     // echo '<button type="submit" class="btn">Add to Cart</button>';
+    //                     echo '<button type="button" class="btn cancel" onclick="Add2Cart' . $code . '()">Add to Cart</button>'."\n";
+    //                     echo '<br><br>'."\n";
+    //                     echo '<button type="button" class="btn cancel" onclick="closeAdd2CartForm' . $code . '()">Cancel</button>'."\n";
+    //                 echo '</form>'."\n";
+    //             echo '</div>';        
 
-                    echo '<script>'."\n";
+    //                 echo '<script>'."\n";
 
-                    echo 'function Add2Cart' . $code . '(token) {'."\n";
-                        echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
-                        echo 'document.getElementById("form-add2cart-form' . $code . '").submit();'."\n";
-                        echo '}'."\n";
+    //                 echo 'function Add2Cart' . $code . '(token) {'."\n";
+    //                     echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
+    //                     echo 'document.getElementById("form-add2cart-form' . $code . '").submit();'."\n";
+    //                     echo '}'."\n";
             
-                    echo 'function openAdd2CartForm' . $code . '() {'."\n";
-                    echo 'document.getElementById("add2cart-form' . $code . '").style.display = "block";'."\n";
-                    echo '}'."\n";
+    //                 echo 'function openAdd2CartForm' . $code . '() {'."\n";
+    //                 echo 'document.getElementById("add2cart-form' . $code . '").style.display = "block";'."\n";
+    //                 echo '}'."\n";
 
-                    echo 'function closeAdd2CartForm' . $code . '() {'."\n";
-                    echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
-                    echo '}'."\n";
-                    echo '</script>'."\n";
+    //                 echo 'function closeAdd2CartForm' . $code . '() {'."\n";
+    //                 echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
+    //                 echo '}'."\n";
+    //                 echo '</script>'."\n";
 
-            echo '</div>'."\n";
-        echo '</div>'."\n";
-    }
+    //         echo '</div>'."\n";
+    //     echo '</div>'."\n";
+    // }
 
     function pickleBlock($image, $title, $trad, $copy, $code)
     {
@@ -106,8 +106,24 @@ and open the template in the editor.
                 echo '<div class="add2cart-popup" id="add2cart-form' . $code . '">'."\n";
                     echo '<div class="form-container">'."\n";
                     // echo '<form id="form-add2cart-form' . $code . '" method="post" action="pre-shopping-cart.php?action=add" class="form-container">'."\n";
-                        echo '<label for="quantity">Quantity</label>'."\n";
-                        echo '<input type="number" id="'.$code.'_quantity" min="1" value="1" name="quantity">'."\n";
+                        // echo '<input type="number" id="'.$code.'_quantity" min="1" value="1" name="quantity">'."\n";
+
+                        echo '<div class="qty-block">'."\n";
+                            echo '<label for="quantity">Quantity</label>'."\n";
+                            echo '<div>'."\n";
+                                echo '<div class="plus-minus-block">'."\n";
+                                    echo '<button onclick="decrementQty' . $code . '()">-</button>'."\n";
+                                echo '</div>'."\n";
+                                echo '<div class="qty-input-block">'."\n";
+                                    echo '<input type="text" id="'.$code.'_quantity-id" value="1" readonly value="0" size=1 name="quantity">'."\n";
+                                echo '</div>'."\n";
+                                echo '<div class="plus-minus-block">'."\n";
+                                    echo '<button onclick="incrementQty' . $code . '()">+</button>'."\n";
+                                echo '</div>'."\n";
+                            echo '</div>'."\n";
+                        echo '</div>'."\n";
+
+
                         echo '<input type="hidden" id="code" value="' . $code . '" name="code">'."\n";
                         echo '<br>'."\n";
                         echo '<br><br>'."\n";
@@ -118,28 +134,41 @@ and open the template in the editor.
                     echo '</div>'."\n";
                 echo '</div>';        
 
-                    echo '<script>'."\n";
+                echo '<script>'."\n";
 
-                    echo 'function Add2Cart' . $code . '(token) {'."\n";
+                echo 'function incrementQty' . $code . '() {'."\n";
+                    // echo 'alert("increment qty")';
+                    echo 'var quantity = parseFloat(document.getElementById("'. $code . '_quantity-id").value);'."\n";
+                    echo 'quantity += 1;'."\n";
+                    echo 'document.getElementById("'. $code . '_quantity-id").value = quantity.toFixed(0);'."\n";
+    
+                echo '}'."\n";
+    
+                echo 'function decrementQty' . $code . '() {'."\n";
+                    // echo 'alert("decrement qty")';
+                    echo 'var quantity = parseFloat(document.getElementById("'. $code . '_quantity-id").value);'."\n";
+                    echo 'if (quantity >= 1) {'."\n";
+                        echo 'quantity -= 1;'."\n";
+                    echo '}'."\n";
+                    echo 'document.getElementById("'. $code . '_quantity-id").value = quantity.toFixed(0);'."\n";
+                echo '}'."\n";
+
+
+                echo 'function Add2Cart' . $code . '(token) {'."\n";
                         echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
-
                         $size = 8.00;
                         $price = 7.00;
-                        echo 'var msg = "Here"',"\n";
-
                         echo 'add2Cart( "'.$title.'", "'.$code.'", "'.$image.'", '.$size.', '.$price.' );'."\n";
-
-
-                        echo '}'."\n";
+                    echo '}'."\n";
             
                     echo 'function openAdd2CartForm' . $code . '() {'."\n";
-                    echo 'document.getElementById("add2cart-form' . $code . '").style.display = "block";'."\n";
+                        echo 'document.getElementById("add2cart-form' . $code . '").style.display = "block";'."\n";
                     echo '}'."\n";
 
                     echo 'function closeAdd2CartForm' . $code . '() {'."\n";
-                    echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
+                        echo 'document.getElementById("add2cart-form' . $code . '").style.display = "none";'."\n";
                     echo '}'."\n";
-                    echo '</script>'."\n";
+                echo '</script>'."\n";
 
             echo '</div>'."\n";
         echo '</div>'."\n";
@@ -362,32 +391,56 @@ and open the template in the editor.
             f.style.display = "none";
         }
 
-        function add2Cart( name, code, image, size, price ) {
-            // alert("add2Cart( " + name +", "+ code+", "+image +", "+ size+", "+price+" );");
+        // function add2Cart( name, code, image, size, price ) {
+        //     // alert("add2Cart( " + name +", "+ code+", "+image +", "+ size+", "+price+" );");
+        //     var total;
+        //     var quantity;
+        //     var itemNum = 0;
+        //     var firstEntry = false;  // 
 
-            var itemNum = 0;
-            var numItems = sessionStorage.getItem("num-items");
-            if ( numItems == null ) {
-                numItems = 1;
-                itemNum = numItems;
-            } else {
-                itemNum = parseFloat(numItems)+parseFloat("1");
-            }
+        //     var numItems = sessionStorage.getItem("num-items");
+        //     if ( numItems == null ) {
+        //         firstEntry = true;
+        //         numItems = 1;
+        //         itemNum = numItems;
+        //     } 
+        //     // else {
+        //     //     itemNum = parseFloat(numItems)+parseFloat("1");
+        //     // }
+        //     quantity = document.getElementById(code+'_quantity').value;
 
-            var quantity = document.getElementById(code+'_quantity').value;
-            var total = quantity * price;
-            sessionStorage.setItem( itemNum+'_name', name );
-            sessionStorage.setItem( itemNum+'_code', code );
-            sessionStorage.setItem( itemNum+'_image', image );
-            sessionStorage.setItem( itemNum+'_size', size );
-            sessionStorage.setItem( itemNum+'_price', price );
-            sessionStorage.setItem( itemNum+'_quantity', quantity );
-            sessionStorage.setItem( itemNum+'_total', total );
+        //     for ( var i=1; i<= numItems; i++ ) {
+        //         var c = sessionStorage.getItem(i+"_code");
+        //         if ( c == code ) {
+        //             var q = sessionStorage.getItem(i+"_quantity");
+        //             q = parseFloat(q);
+        //             quantity = parseFloat(quantity) + q;
+        //             total = quantity * price;
+        //             sessionStorage.setItem( i+'_quantity', quantity );
+        //             sessionStorage.setItem( i+'_total', total );
+        //             window.location.href = "shopping-cart-js-mobile2.php";
+        //             return;
+        //         }
+        //     }
 
-            sessionStorage.setItem( 'num-items', itemNum );
-            window.location.href = "shopping-cart-js.php";
+        //     total = quantity * price;
+        //     itemNum = parseFloat(numItems);
+        //     if ( !firstEntry ) {
+        //         itemNum = parseFloat(numItems)+parseFloat("1");
+        //     }
+            
+        //     sessionStorage.setItem( itemNum+'_name', name );
+        //     sessionStorage.setItem( itemNum+'_code', code );
+        //     sessionStorage.setItem( itemNum+'_image', image );
+        //     sessionStorage.setItem( itemNum+'_size', size );
+        //     sessionStorage.setItem( itemNum+'_price', price );
+        //     sessionStorage.setItem( itemNum+'_quantity', quantity );
+        //     sessionStorage.setItem( itemNum+'_total', total );
 
-        }
+        //     sessionStorage.setItem( 'num-items', itemNum );
+        //     window.location.href = "shopping-cart-js-mobile2.php";
+
+        // }
 
 
     </script>

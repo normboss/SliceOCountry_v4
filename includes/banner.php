@@ -31,7 +31,7 @@ $styleJars = 'style="margin: 0 auto; width: 100%; height: auto; text-align: cent
                 <span class="menu-item"><a href="jams.php">Jams & Preserves</a></span>
                 <span class="menu-item"><a href="pickles.php">Pickles & Condiments</a></span>
                 <span class="menu-item"><a href="contact.php">Contact</a></span>
-                <span class="menu-item"><a href="shopping-cart-js.php">Cart</a></span>
+                <span class="menu-item"><a href="shopping-cart-js-mobile2.php">Cart</a></span>
             </ul>
         </div>
 
@@ -48,7 +48,7 @@ $styleJars = 'style="margin: 0 auto; width: 100%; height: auto; text-align: cent
                         <a href="jams.php">Jams & Preserves</a>
                         <a href="pickles.php">Pickles & Condiments</a>
                         <a href="contact.php">Contact</a>
-                        <a href="shopping-cart-js.php">Cart</a>
+                        <a href="shopping-cart-js-mobile2.php">Cart</a>
                     </div>
                 </li>
             </ul>

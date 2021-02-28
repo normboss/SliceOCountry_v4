@@ -8,7 +8,7 @@ $_SESSION['pagename'] = "shopping-cart";
     <TITLE>Simple PHP Shopping Cart</TITLE>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/shopping-cart.css" type="text/css" rel="stylesheet" />
+    <link href="css/shopping-cart-mobile2.css" type="text/css" rel="stylesheet" />
 </HEAD>
 
 <BODY>
@@ -19,22 +19,42 @@ $_SESSION['pagename'] = "shopping-cart";
     <div id="shopping-cart">
         <div class="txt-heading">Shopping Cart</div>
         <!-- <a id="btnEmpty" href="shopping-cart.php?action=empty">Empty Cart</a> -->
-        <button id="btnEmpty" onclick="emptyCart()">Empty Cart</button>
+        <!-- <button id="btnEmpty" onclick="emptyCart()">Empty Cart</button> -->
 
         <table class="tbl-cart" cellpadding="2" cellspacing="1" id="tbl-cart" border="1">
             <tbody>
                 <tr>
-                    <th class="th-image" width="5%">Image</th>
+                    <th width="5%">Image</th>
                     <th>Name</th>
                     <!-- <th class="th-code">Code</th> -->
                     <th width="5%">Size (oz)</th>
                     <th width="2%">Qty</th>
+                    <!-- <th width="1%"></th> -->
                     <th width="5%">Unit Price</th>
                     <th width="5%">Price</th>
                     <th width="5%">X</th>
                 </tr>
 
                 <tr>
+                    <!-- <td style="text-align: center"><img src="images/pickle.png" width="50%"></td>
+                    <td>This is a test</td>
+                    <td style="text-align: center">8.0</td>
+                    <td>
+                        <div class="qty-block">
+                            <div class="plus-minus-block">
+                                <button>-</button>
+                            </div>
+                            <div class="qty-input-block">
+                                <input type="text" readonly value="0" size=1>
+                            </div>
+                            <div class="plus-minus-block">
+                                <button>+</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td> -->
                 </tr>
 
                 <tr>
@@ -66,8 +86,8 @@ $_SESSION['pagename'] = "shopping-cart";
 
     <div class="cart-buttons">
         <div class="continue-shopping">
-            <button onclick="goBack()">Continue Shopping</button>
-            <button onclick="goForward()">Checkout</button>
+            <button class="btn" onclick="goBack()">Continue Shopping</button>
+            <button class="btn" onclick="goForward()">Checkout</button>
             <!-- <a href="checkout-info.php"><button>Proceed to Checkout</button></a> -->
         </div>
     </div>
@@ -76,13 +96,43 @@ $_SESSION['pagename'] = "shopping-cart";
         var storageCopy;
         var totalAmount = 0;
         var cartCopy;
-        var numItems;
+
 
         function emptyCart() {
             numItems = sessionStorage.getItem('num-items');
-            for (var i = numItems; i>=1; i--) {
+            for (var i = numItems; i >= 1; i--) {
                 removeItem(i);
             }
+        }
+
+        function incrementQty(rowNum) {
+
+            var qtyElement = document.getElementById(rowNum + "_quantity");
+            var quantity = parseFloat(qtyElement.value);
+            quantity = quantity + parseFloat("1.0");
+            qtyElement.value = quantity.toFixed(0);
+            sessionStorage.setItem(rowNum + '_quantity', quantity);
+
+            // var price = sessionStorage.getItem(rowNum+'_price');
+            // var totalPrice = parseFloat(price) * parseFloat(quantity);
+            // sessionStorage.setItem(rowNum+'_total-price', totalPrice.toFixed(2));
+            // var totalPriceElement = document.getElementById(rowNum + "_total-price");
+            // totalPriceElement.value = totalPrice.toFixed(2);
+
+            location.reload();
+        }
+
+        function decrementQty(rowNum) {
+            var qtyElement = document.getElementById(rowNum + "_quantity");
+            var quantity = parseFloat(qtyElement.value);
+            quantity = quantity - parseFloat("1.0");
+            qtyElement.value = quantity.toFixed(0);
+            if (quantity == 0) {
+                removeItem(rowNum);
+            } else {
+                sessionStorage.setItem(rowNum + '_quantity', quantity);
+            }
+            location.reload();
         }
 
         function quantityChanged(value) {
@@ -200,6 +250,7 @@ $_SESSION['pagename'] = "shopping-cart";
             var row = table.insertRow(rowNum);
             row.setAttribute("id", "row" + rowNum);
 
+            // image
             var imageCell = row.insertCell(colIndex++);
             // imageCell = row.insertCell(colIndex++);
             imageCell.style.textAlign = "center"
@@ -207,14 +258,14 @@ $_SESSION['pagename'] = "shopping-cart";
             imageCell.setAttribute("id", idStr);
             imageCell.innerHTML = '<img src="images/' + sessionStorage.getItem(idStr) + '" width="50%" >';
 
-
+            // name
             var nameCell = row.insertCell(colIndex++);
             nameCell.style.textAlign = "left"
             idStr = rowNum + "_name";
             nameCell.setAttribute("id", idStr);
             nameCell.innerHTML = sessionStorage.getItem(idStr);
 
-
+            // size
             var sizeCell = row.insertCell(colIndex++);
             idStr = rowNum + "_size";
             sizeCell.setAttribute("id", idStr);
@@ -222,20 +273,55 @@ $_SESSION['pagename'] = "shopping-cart";
             sizeCell.style.textAlign = "center";
             sizeCell.innerHTML = size.toFixed(1);;
 
+            // quantity
             // <input id="qty-id" type="number" id="quantity" name="qty" onchange="quantityChanged(this.value)" value="0" size="4" min="0">
             var quantCell = row.insertCell(colIndex++);
+            var qtyBlock = document.createElement("DIV");
+            qtyBlock.setAttribute("class", "qty-block");
+            quantCell.appendChild(qtyBlock);
+            quantCell = qtyBlock;
+
+            // var minusNodeCell = quantCell; // row.insertCell(colIndex++);
+            var minusNodeDiv = document.createElement("DIV");
+            minusNodeDiv.setAttribute("class", "plus-minus-block");
+            quantCell.appendChild(minusNodeDiv);
+            var minusNode = document.createElement("button");
+            minusNode.setAttribute("onclick", "decrementQty('" + rowNum + "')");
+            minusNodeDiv.appendChild(minusNode);
+            minusNode.innerHTML = "-";
+
             idStr = rowNum + "_quantity";
             var quantity = parseInt(sessionStorage.getItem(idStr));
+            // quantCell.setAttribute("class", "qty-id");
+            // quantCell.setAttribute("id", idStr);
+            // var qtyNodeDiv = document.createElement("DIV");
 
-            var inputNode = document.createElement("INPUT");
-            quantCell.setAttribute("class", "qty-id");
-            inputNode.setAttribute("id", idStr);
-            inputNode.setAttribute("type", "number");
-            inputNode.setAttribute("min", "0");
-            inputNode.setAttribute("value", quantity);
-            inputNode.setAttribute("onchange", "quantityChanged(this.value)");
-            // document.body.appendChild(x);
-            quantCell.appendChild(inputNode);
+            var qtyInputBlock = document.createElement("DIV");
+            qtyInputBlock.setAttribute("class", "qty-input-block");
+            // Input.setAttribute("id", idStr);
+            quantCell.appendChild(qtyInputBlock);
+
+            var qtyInput = document.createElement("INPUT");
+            qtyInput.setAttribute("type", "text");
+            qtyInput.setAttribute("readonly", "");
+            qtyInput.setAttribute("id", idStr);
+            qtyInput.value = parseFloat(quantity);
+            qtyInputBlock.appendChild(qtyInput);
+
+
+            var plusNodeCell = quantCell; // row.insertCell(colIndex++);
+            var plusNodeDiv = document.createElement("DIV");
+            plusNodeDiv.setAttribute("class", "plus-minus-block");
+            quantCell.appendChild(plusNodeDiv);
+            var plusNode = document.createElement("button");
+            plusNode.setAttribute("onclick", "incrementQty('" + rowNum + "')");
+            plusNodeDiv.appendChild(plusNode);
+            plusNode.innerHTML = "+";
+
+            // var minuNode = document.createElement("button");
+            // minuNode.setAttribute("onclick", "deccrementQty('"+rowNum+"')");            
+            // plusMinusNodeDiv.appendChild(minuNode);
+            // minuNode.innerHTML = "-";
 
             // quantCell.style.textAlign = "center";
             // quantCell.innerHTML = quantity.toFixed(0);
@@ -245,6 +331,8 @@ $_SESSION['pagename'] = "shopping-cart";
             // var weightCell = row.insertCell(colIndex++);
             // weightCell.innerHTML = itemWt.toFixed(1);
 
+
+            // price
             var unitPriceCell = row.insertCell(colIndex++);
             idStr = rowNum + "_price";
             unitPriceCell.setAttribute("id", idStr);
@@ -253,6 +341,7 @@ $_SESSION['pagename'] = "shopping-cart";
             unitPrice = parseFloat(unitPrice);
             unitPriceCell.innerHTML = "$" + unitPrice.toFixed(2);
 
+            // total price
             var totalPriceCell = row.insertCell(colIndex++);
             idStr = rowNum + "_total-price";
             totalPriceCell.setAttribute("id", idStr);
@@ -346,12 +435,7 @@ $_SESSION['pagename'] = "shopping-cart";
         function loadShoppingCart() {
             totalTotalPrice = 0;
             totalWt = 0;
-            var totalAmt = sessionStorage.getItem("total");
-            var shipping = sessionStorage.getItem("shipping");
-            if (shipping != null) {
-                window.alert("Shipping cost received!");
-            }
-            // numItems += 1;
+
             totalAmount = 0;
             var table = document.getElementsByClassName("tbl-cart");
             var t = table[0];
@@ -405,25 +489,14 @@ $_SESSION['pagename'] = "shopping-cart";
             // cell.innerHTML = totalAmt;
         }
 
-
-        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
-
-        // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        //     window.location.href = "shopping-cart-js-mobile.php";     
-        // }
-
-        if ( !isMobile ) {
-            numItems = sessionStorage.getItem("num-items");
-            if (numItems == null) {
-                // storeShoppingCart();
-            } else {
-                loadShoppingCart();
-            }
+        var numItems = sessionStorage.getItem("num-items");
+        if (numItems == null) {
+            // storeShoppingCart();
         } else {
-            window.location.href = "shopping-cart-js-mobile.php";     
+            loadShoppingCart();
         }
 
-        // window.history.replaceState({}, document.title, "http://localhost:8080/SliceOCountry_v4/" + "shopping-cart.php");
+        // window.history.replaceState({}, document.title, "http://localhost:8080/SliceOCountry_v4/" + "shopping-cart-js.php");
     </script>
 
 </BODY>

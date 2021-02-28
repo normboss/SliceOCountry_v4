@@ -4,16 +4,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Aug 29, 2018, 10:01:37 AM
-    Author     : Norm
-*/
-@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Open+Sans:400,400i,600,700,800");
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
     Created on : Jan 26, 2019, 10:44:21 PM
     Author     : Norm
 */
@@ -1225,558 +1215,172 @@ and open the template in the editor.
   display: block;
 }
 
-main {
-  max-width: 3200px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 28px;
-  /*word-spacing: -5px;*/
-  /*letter-spacing: 20px;*/
-  font-family: "Dancing Script", cursive;
-  font-size: 64px;
-  font-weight: bold;
-  /*  font-family: 'Allura', cursive;
-      font-family: 'Zeyada', cursive;*/
-}
-
-main .php-output {
-  color: red;
+body {
   font-family: Arial;
-  font-size: 22px;
+  color: #211a1a;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-main .text .large-text {
-  font-size: 62px;
+body #shopping-cart {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1280px;
 }
 
-main .text .under-construction {
+body #shopping-cart .txt-heading {
+  color: #211a1a;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 25px;
+}
+
+body #shopping-cart #btnEmpty {
+  background-color: #ffffff;
+  border: #d00000 1px solid;
+  padding: 5px 10px;
+  color: #d00000;
+  float: right;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: 10px 0px;
+  font-size: 25px;
+}
+
+body #shopping-cart .tbl-cart {
+  width: 100%;
+  background-color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+body #shopping-cart .tbl-cart .tbl-cart {
+  font-size: 18px;
+}
+
+body #shopping-cart .tbl-cart th {
+  font-weight: normal;
   font-size: 16px;
-}
-
-main .small-text {
-  font-size: 28px;
-  letter-spacing: 2px;
-  word-spacing: -10px;
-  font-weight: bold;
-}
-
-main .top-section {
-  width: 100%;
-  margin: 0 auto;
-  height: 89vh;
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  background-image: url("../images/WalkingInGarden.png");
-}
-
-@media screen and (max-width: 600px) {
-  main .top-section {
-    background-image: url("../images/WalkingInGarden.png");
-  }
-}
-
-main .top-section .top-content {
-  color: white;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-main .top-section .top-content .tag-line1 {
-  display: none;
-  width: 100%;
-  height: 300px;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: "Chilanka", cursive;
-}
-
-main .top-section .top-content .pickles-heading {
-  font: var(--unnamed-font-style-normal) normal bold 42px/49px Raleway;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal bold 42px/49px Raleway;
-  letter-spacing: 0px;
-  color: #fffcfc;
-  text-transform: uppercase;
-  font-size: 38px;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  position: absolute;
-  top: 40%;
-  top: 180px;
-  left: 14.8%;
-  left: 55px;
-}
-
-@media screen and (max-width: 700px) {
-  main .top-section .top-content .pickles-heading {
-    font-size: 30px;
-  }
-}
-
-main .top-section .top-content .pickles-heading__text {
-  background-color: rgba(19, 83, 76, 0.5);
-}
-
-@media screen and (max-width: 700px) {
-  main .top-section .top-content .pickles-heading {
-    top: 45%;
-  }
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {
-  main .top-section .top-content .pickles-heading {
-    left: 5%;
-  }
-}
-
-@media screen and (max-height: 650px) {
-  main .top-section .top-content .pickles-heading {
-    top: 55%;
-  }
-}
-
-@media screen and (max-height: 350px) {
-  main .top-section .top-content .pickles-heading {
-    top: 45%;
-  }
-}
-
-main .top-section .top-content .small-batches {
-  background-color: rgba(19, 83, 76, 0.5);
-  max-width: 1200px;
-  width: auto;
-  font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  font-size: 35px;
-  letter-spacing: 0px;
-  color: #ffffff;
-  text-align: left;
-  position: absolute;
-  bottom: 0%;
-  transform: translateY(-50%);
-  left: 14.5%;
-}
-
-@media screen and (max-width: 700px) {
-  main .top-section .top-content .small-batches {
-    font-size: 28px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  main .top-section .top-content .small-batches {
-    left: 5%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  main .top-section .top-content .small-batches {
-    font-size: 24px;
-    text-align: center;
-    padding-bottom: 10px;
-  }
-}
-
-@media screen and (max-height: 500px) {
-  main .top-section .top-content .small-batches {
-    bottom: -25px;
-  }
-}
-
-main .top-section .top-content .sarah-info {
-  width: 280px;
-  height: 300px;
-  position: absolute;
-  top: 0%;
-  right: 0px;
-}
-
-@media screen and (max-width: 700px) {
-  main .top-section .top-content .sarah-info {
-    width: 200px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  main .top-section .top-content .sarah-info {
-    width: 150px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  main .top-section .top-content .sarah-info {
+  body #shopping-cart .tbl-cart .th-image,
+  body #shopping-cart .tbl-cart .td-image,
+  body #shopping-cart .tbl-cart .th-code,
+  body #shopping-cart .tbl-cart .td-code {
     display: none;
   }
 }
 
-main .top-section .top-content .sarah-info .sarah-image {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 36px;
-  font-weight: normal;
-  color: white;
+body #shopping-cart .tbl-cart td {
+  background-color: #ffffff;
+  font-size: 18px;
 }
 
-main .top-section .top-content .sarah-info .sarah-image .box32 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-main .top-section .top-content .sarah-info .sarah-image img {
-  width: 240px;
-  width: 7em;
-  width: 90%;
-}
-
-main .top-section .top-content .sarah-info .sarah-text {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  font: Regular 24px/29px Raleway;
-  background-color: rgba(19, 83, 76, 0.5);
-  font-family: "Raleway", sans-serif;
-  letter-spacing: 0px;
-  color: #ffffff;
-}
-
-main .top-section .top-content .sarah-pic {
-  grid-area: sarah-pic;
-  width: 100%;
-  text-align: right;
-  margin: 0 auto;
-  justify-self: center;
-}
-
-main .top-section .top-content .sarah-pic img {
-  min-width: 150px;
-  max-width: 200px;
+body #shopping-cart .tbl-cart td .qty-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 @media screen and (max-width: 600px) {
-  main .top-section .top-content .sarah-pic {
-    text-align: right;
+  body #shopping-cart .tbl-cart td .qty-block {
+    flex-direction: column-reverse;
   }
 }
 
-main .top-section .top-content .sarah-pic .sarah-cert {
-  background-color: rgba(19, 83, 76, 0.5);
-  grid-area: sarah-cert;
-  width: 100%;
-  font-size: 16px;
-  font-family: Helvetica Neue;
-  padding-left: 0px;
-  justify-self: right;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-main .size-text-narrow {
-  border: 3px solid green;
-  display: none;
-  height: 0;
-  font-family: Raleway;
-  font-size: 24px;
-  color: #000000;
-  font-weight: normal;
-  text-align: center;
-}
-
-@media screen and (max-width: 750px) {
-  main .size-text-narrow {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  main .size-text-narrow {
-    padding-bottom: 60px;
-  }
-}
-
-main .pickles {
-  margin-top: 20px;
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  margin-top: 25px;
-}
-
-@media screen and (max-width: 1000px) {
-  main .pickles {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 950px) {
-  main .pickles {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 850px) {
-  main .pickles {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  main .pickles {
-    max-width: 300px;
-  }
-}
-
-main .pickles .pickle-block {
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-@media screen and (max-width: 750px) {
-  main .pickles .pickle-block {
-    flex-direction: column;
-  }
-}
-
-main .pickles .pickle-block .pickle-box1 {
-  height: 325px;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  padding-left: 0px;
-  margin: 0 auto;
-  justify-items: center;
-  margin-bottom: 15px;
-}
-
-@media screen and (max-width: 750px) {
-  main .pickles .pickle-block .pickle-box1 {
-    width: 350px;
-    width: 70%;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  main .pickles .pickle-block .pickle-box1 {
-    width: 100%;
-  }
-}
-
-main .pickles .pickle-block .button-box1 {
-  outline: 3px solid red;
-  margin: 0 auto;
-  text-align: center;
-  align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media screen and (max-width: 400px) {
-  main .pickles .pickle-block .image {
-    max-width: 300px;
-    padding-left: 0;
-    text-align: center;
-  }
-}
-
-main .pickles .pickle-block .image img {
-  height: 325px;
-  width: 325px;
-}
-
-@media screen and (max-width: 400px) {
-  main .pickles .pickle-block .image img {
-    height: 300px;
-    width: 300px;
-    width: 100%;
-  }
-}
-
-main .pickles .pickle-block .pickle-copy {
-  outline: 3px solid red;
-  margin: 0 auto;
-  width: 60%;
-  text-align: left;
-  border: 1px solid black;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 20px;
+body #shopping-cart .tbl-cart td .qty-block .qty-input-block {
   height: 100%;
-  padding-bottom: 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding-left: 0;
-  text-align: left;
-  justify-items: left;
 }
 
-@media screen and (max-width: 400px) {
-  main .pickles .pickle-block {
-    width: 300px;
-    width: 100%;
-  }
+body #shopping-cart .tbl-cart td .qty-block .qty-input-block input[type=number] {
+  width: 20px;
+  font-size: 18px;
+  margin: 0;
 }
 
-@media screen and (max-width: 700px) {
-  main .pickles .pickle-block {
-    padding-left: 0px;
-    text-align: left;
-    justify-items: left;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+body #shopping-cart .tbl-cart td .qty-block .qty-input-block input[type=text] {
+  text-align: right;
+  width: 30px;
+  font-size: 18px;
+  margin: 0;
 }
 
-main .pickles .pickle-block .small-logo {
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 5px;
+body #shopping-cart .tbl-cart td .qty-block .plus-minus-block {
+  height: 100%;
 }
 
-main .pickles .pickle-block .traditional {
-  font: var(--unnamed-font-style-normal) normal bold 18px/16px Raleway;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: center;
-  font: normal normal bold 18px/16px Raleway;
-  letter-spacing: 0px;
-  color: #000000;
-}
-
-main .pickles .pickle-block .name {
-  margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 32px;
+body #shopping-cart .tbl-cart td .qty-block .plus-minus-block button {
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-@media screen and (max-width: 400px) {
-  main .pickles .pickle-block .name {
-    font-size: 28px;
-  }
-}
-
-main .pickles .pickle-block .text {
-  outline: 3px solid red;
-  font-weight: normal;
-  font-size: 16px;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  width: 80%;
-  overflow: hidden;
-}
-
-main .pickles .pickle-block .text-centered {
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-main .pickles .pickle-block .text--special {
-  width: 350px;
-  font-size: 16px;
-  text-align: center;
-}
-
-main .pickles .pickle-block .text--special a {
-  text-decoration: inherit;
-  color: inherit;
-}
-
-main .pickles .pickle-block .button-box {
-  outline: 3px solid red;
-  margin: 0 auto;
-  text-align: center;
+  width: 25px;
+  height: 30px;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  border-color: 0%;
+  border: 1px solid lightgrey;
+  background-color: #f0f0f0;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-main .pickles .bottom-block {
-  border: 6px solid #13534c;
-  border-radius: 56px;
-  opacity: 1;
-  margin: 0 auto;
+body #shopping-cart .tbl-cart .qty-id1 {
+  text-align: center;
+  display: flex;
+}
+
+body #shopping-cart .tbl-cart .qty-id1 button {
+  width: 2px;
+  height: 2px;
+  margin: 0 2px 0 2px;
+}
+
+body #shopping-cart .tbl-cart .qty-id1 input {
+  width: 30px;
+}
+
+body .cart-buttons {
   width: 100%;
-  margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-@media screen and (max-width: 750px) {
-  main .pickles .bottom-block {
-    grid-template-columns: 1fr;
-    border-radius: 0px;
-    border: 0px;
-  }
-}
-
-main .pickles .bottom-block img {
-  width: 100%;
-}
-
-main .pickles .bottom-block div {
-  font: var(--unnamed-font-style-normal) normal bold 29px/34px Raleway;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal bold 29px/34px Raleway;
-  letter-spacing: 0px;
-  color: #13534c;
-  opacity: 1;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  padding-left: 25px;
-  padding-right: 25px;
 }
 
-@media screen and (max-width: 1100px) {
-  main .pickles .bottom-block div {
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 25px;
+body .cart-buttons .continue-shopping {
+  display: flex;
+  justify-content: space-between;
+}
+
+body .cart-buttons .continue-shopping button {
+  width: 40%;
+  height: 50px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  body .cart-buttons .continue-shopping button {
+    height: 80px;
   }
 }
 
-@media screen and (max-width: 400px) {
-  main .pickles .bottom-block div {
-    padding-left: 0px;
-    padding-right: 0px;
-    font-size: 24px;
-    align-items: center;
-  }
+body .cart-item-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: #e0e0e0 1px solid;
+  padding: 5px;
+  vertical-align: middle;
+  margin-right: 15px;
 }
 
-main .pickles .bottom-block div div {
-  font: var(--unnamed-font-style-normal) normal bold 29px/34px Raleway;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal bold 29px/34px Raleway;
-  letter-spacing: 0px;
-  color: #13534c;
-  opacity: 1;
-  padding: 10px;
+body .no-records {
+  text-align: center;
+  clear: both;
+  margin: 38px 0px;
+  font-size: 25px;
 }
-
-main .pickles .bottom-block div .email-me {
-  color: #13534c;
-  text-decoration: none;
-  text-decoration: underline;
-}
-/*# sourceMappingURL=pickles0.css.map */
+/*# sourceMappingURL=shopping-cart-mobile2.css.map */

@@ -75,8 +75,36 @@
 </script>
 
 <script>
-    var elements = document.getElementsByClassName("button");
+    function incrementQty(rowNum) {
+        var qtyElement = document.getElementById(rowNum + "_quantity");
+        var quantity = parseFloat(qtyElement.value);
+        quantity = quantity + parseFloat("1.0");
+        qtyElement.value = quantity.toFixed(0);
+        sessionStorage.setItem(rowNum + '_quantity', quantity);
 
+        // var price = sessionStorage.getItem(rowNum+'_price');
+        // var totalPrice = parseFloat(price) * parseFloat(quantity);
+        // sessionStorage.setItem(rowNum+'_total-price', totalPrice.toFixed(2));
+        // var totalPriceElement = document.getElementById(rowNum + "_total-price");
+        // totalPriceElement.value = totalPrice.toFixed(2);
+
+        location.reload();
+    }
+
+    function decrementQty(rowNum) {
+        var qtyElement = document.getElementById(rowNum + "_quantity");
+        var quantity = parseFloat(qtyElement.value);
+        quantity = quantity - parseFloat("1.0");
+        qtyElement.value = quantity.toFixed(0);
+        if (quantity == 0) {
+            removeItem(rowNum);
+        }
+        sessionStorage.setItem(rowNum + '_quantity', quantity);
+        location.reload();
+    }
+
+
+    var elements = document.getElementsByClassName("button");
     for (var i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', buttonHandler, false);
     }
@@ -92,5 +120,81 @@
 
     function closeAdd2CartForm() {
         document.getElementById("add2cart-form").style.display = "none";
+    }
+
+    // document.getElementById("add2cart-form' . $code . '").style.display = "none";
+    var forms = document.getElementsByClassName("add2cart-popup");
+    if (forms != null) {
+        for (var i = 0; i < forms.length; i++) {
+            var f = forms[0];
+            f.style.display = "none";
+        }
+    }
+
+    function add2Cart(name, code, image, size, price) {
+        // alert("add2Cart( " + name +", "+ code+", "+image +", "+ size+", "+price+" );");
+        var total;
+        var quantity;
+        var size;
+        var itemNum = 0;
+        var firstEntry = false; // 
+
+        var numItems = sessionStorage.getItem("num-items");
+        if (numItems == null) {
+            firstEntry = true;
+            numItems = 1;
+            itemNum = numItems;
+        }
+        // else {
+        //     itemNum = parseFloat(numItems)+parseFloat("1");
+        // }
+        quantity = document.getElementById(code + '_quantity-id').value;
+        var sizeElement = document.getElementById(code + '-size-id');
+        if ( sizeElement != null ) {
+            size = sizeElement.value;
+        }
+        if (quantity <= 0) {
+            return;
+        }
+        if (size == 1.5) {
+            price = 3.50;
+        } else if (size == 4.0) {
+            price = 5.00;
+        } else {
+            price = 8.75;
+        }
+
+        for (var i = 1; i <= numItems; i++) {
+            var c = sessionStorage.getItem(i + "_code");
+            var s = sessionStorage.getItem(i + "_size");
+            if (c == code && s == size) {
+                var q = sessionStorage.getItem(i + "_quantity");
+                q = parseFloat(q);
+                quantity = parseFloat(quantity) + q;
+                total = quantity * price;
+                sessionStorage.setItem(i + '_quantity', quantity);
+                sessionStorage.setItem(i + '_total', total);
+                window.location.href = "shopping-cart-js-mobile2.php";
+                return;
+            }
+        }
+
+        total = quantity * price;
+        itemNum = parseFloat(numItems);
+        if (!firstEntry) {
+            itemNum = parseFloat(numItems) + parseFloat("1");
+        }
+
+        sessionStorage.setItem(itemNum + '_name', name);
+        sessionStorage.setItem(itemNum + '_code', code);
+        sessionStorage.setItem(itemNum + '_image', image);
+        sessionStorage.setItem(itemNum + '_size', size);
+        sessionStorage.setItem(itemNum + '_price', price);
+        sessionStorage.setItem(itemNum + '_quantity', quantity);
+        sessionStorage.setItem(itemNum + '_total', total);
+
+        sessionStorage.setItem('num-items', itemNum);
+        window.location.href = "shopping-cart-js-mobile2.php";
+
     }
 </script>

@@ -66,16 +66,34 @@ body {
 
                 .qty-block {
                     // outline: 2px solid red;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: center;
-
-                    .quantity-block {
-                        padding-left: 2px;
-                        padding-right: 2px;
+                    display: flex;
+                    flex-direction: row;
+                    @include max-width-mixin(600px) {
+                        flex-direction: column-reverse;
                     }
-                        
+                    justify-content: space-evenly;
+                    align-items: center;
+
+                    // padding-left: 2px;
+                    // padding-right: 2px;
+
+                    .qty-input-block {
+                        // outline: 2px solid red;
+                        height: 100%;
+                        // width: 100%;
+                        input[type=number] {
+                            width: 20px;
+                            font-size: 18px;
+                            margin: 0;
+                        }
+                        input[type=text] {
+                            text-align: right;
+                            width: 30px;
+                            font-size: 18px;
+                            margin: 0;
+                        }
+                    }
+
                     .plus-minus-block {
                         // outline: 2px solid red;
                         // width: 25px;
@@ -129,7 +147,6 @@ body {
                 input {
                     width: 30px;
                 }
-
             }
         }
     }

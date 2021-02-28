@@ -11,6 +11,7 @@ $_SESSION['pagename'] = "checkout-info";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -86,7 +87,13 @@ $_SESSION['pagename'] = "checkout-info";
         <label>
             <input type="checkbox" checked="checked" name="sameadr"> Billing address same as shipping
         </label>
-        <input type="submit" value="Continue Check-out" class="btn">
+        <!-- <input type="submit" value="Continue Check-out" class="btn"> -->
+        <button onclick="alert('Credit card processing is not enabled with this demo.')" class="btn">Continue Check-out</button>
+        <br><br>
+        <!-- <a class="btn btn-link" href="shopping-cart-js-mobile2.php">Go Back</a> -->
+        <button class="btn btn-link"><a href="shopping-cart-js-mobile2.php">Go Back</a></button>
+        <!-- <input" class="btn" type="button" value="Continue Check-out" onclick="alert('Credit card processing is not enabled with this demo.');"> -->
+
         <!-- </div> -->
         </form>
 
@@ -116,7 +123,7 @@ $_SESSION['pagename'] = "checkout-info";
                     <td colspan="1" align="left">Total:</td>
                     <!-- <td colspan="1" align="right"></td> -->
                     <td colspan="1" align="right"></td>
-                    <td colspan="1" align="right"></td>
+                    <td id="total-weight" colspan="1" align="right"></td>
                     <td id="total-amount" colspan="1" align="right">$0.00</td>
                     <!-- <td align="right" colspan="1"></td> -->
                     <!-- <td></td> -->
@@ -201,7 +208,16 @@ $_SESSION['pagename'] = "checkout-info";
         var shippingRate = 0;
         var totalWt = 0;
         var zipHasBeenEntered = false;
-        var totalAmount;
+        var totalAmount, totalWeight;
+
+        function gotNext() {
+            alert("The next screen is not enable yet.");
+        }
+
+        function goBack() {
+            window.location.href = "shopping-cart-js-mobile2.php";
+        }
+
 
         function zipEntered(value) {
             // window.alert(value);
@@ -277,13 +293,13 @@ $_SESSION['pagename'] = "checkout-info";
                 // var t = table[0];
                 // t.rows[numItems].cells[3].innerHTML = "$" + shippingRate;
                 shippingRate = parseFloat(shippingRate);
-                document.getElementById('shipping-rate').innerHTML = "$"+shippingRate;
+                document.getElementById('shipping-rate').innerHTML = "$" + shippingRate;
                 sessionStorage.setItem('shipping-rate', shippingRate);
 
                 var totalAmt = parseFloat(sessionStorage.getItem("total-amount"));
                 totalAmt += shippingRate;
                 // t.rows[numItems + 1].cells[3].innerHTML = "$" + totalAmt;
-                document.getElementById('total-amount').innerHTML = "$"+totalAmt;
+                document.getElementById('total-amount').innerHTML = "$" + totalAmt;
                 sessionStorage.setItem('total-amount', totalAmt);
 
             });
@@ -467,7 +483,10 @@ $_SESSION['pagename'] = "checkout-info";
             price *= quantity;
             priceCell.innerHTML = "$" + price.toFixed(2);
             totalAmount += price;
+
         }
+
+        // --------------------------------------------------------------------
 
         var numItems = parseInt(sessionStorage.getItem("num-items"));
         totalWt = 0;
@@ -487,16 +506,20 @@ $_SESSION['pagename'] = "checkout-info";
         // var totalAmount = parseFloat(sessionStorage.getItem('total-amount'));
         sessionStorage.setItem('total-amount', totalAmount);
         var totalAmtCell = document.getElementById("total-amount");
-        if ( isNaN(totalAmount) ) {
-            totalAmount = 0;   
+        if (isNaN(totalAmount)) {
+            totalAmount = 0;
         }
         totalAmtCell.innerHTML = "$" + totalAmount.toFixed(2);
 
+        var totalWtCell = document.getElementById("total-weight");
+        totalWtCell.innerHTML = totalWt.toFixed(1);
+
+
         var savedShippingRate = sessionStorage.getItem('shipping-rate');
-        if ( savedShippingRate != null ) {
-            if ( zipHasBeenEntered ) {
+        if (savedShippingRate != null) {
+            if (zipHasBeenEntered) {
                 var shippingRateCell = document.getElementById("shipping-rate");
-                shippingRateCell.innerHTML = "$"+savedShippingRate;
+                shippingRateCell.innerHTML = "$" + savedShippingRate;
             } else {
                 sessionStorage.removeItem('shipping-rate');
             }

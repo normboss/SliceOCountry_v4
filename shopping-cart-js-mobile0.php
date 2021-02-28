@@ -8,7 +8,7 @@ $_SESSION['pagename'] = "shopping-cart";
     <TITLE>Simple PHP Shopping Cart</TITLE>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/shopping-cart.css" type="text/css" rel="stylesheet" />
+    <link href="css/shopping-cart-mobile.css" type="text/css" rel="stylesheet" />
 </HEAD>
 
 <BODY>
@@ -17,9 +17,8 @@ $_SESSION['pagename'] = "shopping-cart";
     ?>
 
     <div id="shopping-cart">
-        <div class="txt-heading">Shopping Cart</div>
-        <!-- <a id="btnEmpty" href="shopping-cart.php?action=empty">Empty Cart</a> -->
-        <button id="btnEmpty" onclick="emptyCart()">Empty Cart</button>
+        <div class="txt-heading">Shopping Cart (Mobile)</div>
+        <a id="btnEmpty" href="shopping-cart.php?action=empty">Empty Cart</a>
 
         <table class="tbl-cart" cellpadding="2" cellspacing="1" id="tbl-cart" border="1">
             <tbody>
@@ -29,6 +28,7 @@ $_SESSION['pagename'] = "shopping-cart";
                     <!-- <th class="th-code">Code</th> -->
                     <th width="5%">Size (oz)</th>
                     <th width="2%">Qty</th>
+                    <th width="1%"></th>
                     <th width="5%">Unit Price</th>
                     <th width="5%">Price</th>
                     <th width="5%">X</th>
@@ -76,15 +76,15 @@ $_SESSION['pagename'] = "shopping-cart";
         var storageCopy;
         var totalAmount = 0;
         var cartCopy;
-        var numItems;
 
-        function emptyCart() {
-            numItems = sessionStorage.getItem('num-items');
-            for (var i = numItems; i>=1; i--) {
-                removeItem(i);
-            }
+        function incrementQty( rowNum ) {
+            alert("Increment Row "+rowNum );
         }
 
+        function decrementQty( rowNum ) {
+            alert("Increment Row "+rowNum );
+        }
+        
         function quantityChanged(value) {
             // alert("New Quantity is "+value);
 
@@ -224,18 +224,35 @@ $_SESSION['pagename'] = "shopping-cart";
 
             // <input id="qty-id" type="number" id="quantity" name="qty" onchange="quantityChanged(this.value)" value="0" size="4" min="0">
             var quantCell = row.insertCell(colIndex++);
+
+            
             idStr = rowNum + "_quantity";
             var quantity = parseInt(sessionStorage.getItem(idStr));
-
-            var inputNode = document.createElement("INPUT");
             quantCell.setAttribute("class", "qty-id");
-            inputNode.setAttribute("id", idStr);
-            inputNode.setAttribute("type", "number");
-            inputNode.setAttribute("min", "0");
-            inputNode.setAttribute("value", quantity);
-            inputNode.setAttribute("onchange", "quantityChanged(this.value)");
-            // document.body.appendChild(x);
-            quantCell.appendChild(inputNode);
+            quantCell.setAttribute("id", idStr);
+            quantCell.innerHTML = quantity.toFixed(0);
+
+            // var inputNode = document.createElement("INPUT");
+            // inputNode.setAttribute("type", "number");
+            // inputNode.setAttribute("min", "0");
+            // inputNode.setAttribute("value", quantity);
+            // inputNode.setAttribute("onchange", "quantityChanged(this.value)");
+            // quantCell.appendChild(inputNode);
+
+
+            var plusMinusNodeCell = quantCell; // row.insertCell(colIndex++);
+            var plusMinusNodeDiv = document.createElement("DIV");
+            plusMinusNodeDiv.setAttribute("class", "plus-minus-block");
+            plusMinusNodeCell.appendChild(plusMinusNodeDiv);
+            var plusNode = document.createElement("button");
+            plusNode.setAttribute("onclick", "incrementQty('"+rowNum+"')");            
+            plusMinusNodeDiv.appendChild(plusNode);
+            plusNode.innerHTML = "+";
+
+            var minuNode = document.createElement("button");
+            minuNode.setAttribute("onclick", "deccrementQty('"+rowNum+"')");            
+            plusMinusNodeDiv.appendChild(minuNode);
+            minuNode.innerHTML = "-";
 
             // quantCell.style.textAlign = "center";
             // quantCell.innerHTML = quantity.toFixed(0);
@@ -405,22 +422,11 @@ $_SESSION['pagename'] = "shopping-cart";
             // cell.innerHTML = totalAmt;
         }
 
-
-        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent);
-
-        // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        //     window.location.href = "shopping-cart-js-mobile.php";     
-        // }
-
-        if ( !isMobile ) {
-            numItems = sessionStorage.getItem("num-items");
-            if (numItems == null) {
-                // storeShoppingCart();
-            } else {
-                loadShoppingCart();
-            }
+        var numItems = sessionStorage.getItem("num-items");
+        if (numItems == null) {
+            // storeShoppingCart();
         } else {
-            window.location.href = "shopping-cart-js-mobile.php";     
+            loadShoppingCart();
         }
 
         // window.history.replaceState({}, document.title, "http://localhost:8080/SliceOCountry_v4/" + "shopping-cart.php");
